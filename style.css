@@ -17,3 +17,13 @@ body {
     margin: auto;
     padding: 20%;
 }
+
+.sk-cube-grid {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+}
+
+.sk-cube {
+    background-color: #d64533 !important;
+}
