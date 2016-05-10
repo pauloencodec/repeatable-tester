@@ -1,0 +1,23 @@
+{
+  "name": "repeatable-tester",
+  "authors": [
+    "viniromano <viniromano@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "filepicker-js-bower": "filepicker-js#^2.4.5",
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6",
+    "SpinKit": "spinkit#^1.2.5"
+  }
+}
