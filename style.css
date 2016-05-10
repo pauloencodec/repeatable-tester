@@ -27,3 +27,12 @@ body {
 .sk-cube {
     background-color: #d64533 !important;
 }
+
+#modal-zoom .modal-dialog {
+    width: 99%;
+}
+
+#modal-zoom .modal-body {
+    overflow-y: scroll;
+    height: 85%;
+}

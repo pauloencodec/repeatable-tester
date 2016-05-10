@@ -38,10 +38,12 @@
 
         applyPattern: function () {
             $('#image-test').prop('src', upload.getTestUrl());
+            $('#image-test-zoom').prop('src', upload.getTestUrl(2000));
         },
 
-        getTestUrl: function (resolution) {
-            return `http://s7d4.scene7.com/ir/render/AllsteelRender/TuxedoClub_0030?wid=1000&fmt=png-alpha&qlt=100&obj=root/channels/dflt/fram1/pr6&show&obj=root/channels/dflt/uphl1/up01&src=${upload.getSource()}&res=${upload.getResolution()}&show&obj=root/channels/dflt/drop&show&obj=root/channels/dflt/stat&show&obj=root&req=object&wid=600`;
+        getTestUrl: function (width) {
+            width = width || 600;
+            return `http://s7d4.scene7.com/ir/render/AllsteelRender/TuxedoClub_0030?wid=${width}&fmt=png-alpha&qlt=100&obj=root/channels/dflt/fram1/pr6&show&obj=root/channels/dflt/uphl1/up01&src=${upload.getSource()}&res=${upload.getResolution()}&show&obj=root/channels/dflt/drop&show&obj=root/channels/dflt/stat&show&obj=root&req=object&wid=${width}`;
         },
 
         getResolution: function() {
