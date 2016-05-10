@@ -49,7 +49,7 @@
         },
 
         getSource: function() {
-            return `%7b${upload.pattern.replace('https', 'http')}${upload.extension ? `+.${upload.extension}` : ''}%7d`;
+            return `%7b${upload.pattern.replace('https', 'http').replace('cdn.filestackcontent.com', 'cdn.filepicker.io/api/file')}${upload.extension ? `+.${upload.extension}` : ''}%7d`;
         }
     };
 
