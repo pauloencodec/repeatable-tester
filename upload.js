@@ -1,11 +1,6 @@
 !function () {
     window.upload = {
-<<<<<<< HEAD
-        pattern: 'http://s7d9.scene7.com/is/image/hnicorprender/allsteel-dotty-crimini?wid=400',
-        extension: '',
-=======
         pattern: 'http://remediodaterra.com.br/wp-content/uploads/2015/08/cachorro-quente.jpg',
->>>>>>> e3912950ff82a3fbc7f3dd1cf85ee38dea82239e
 
         init: function () {
             upload.config();
@@ -56,9 +51,6 @@
         },
 
         getSource: function() {
-<<<<<<< HEAD
-            return `%7b${upload.pattern.replace('https', 'http').replace('cdn.filestackcontent.com', 'cdn.filepicker.io/api/file')}${upload.extension ? `+.${upload.extension}` : ''}%7d`;
-=======
             return `%7b${upload.pattern.replace('https', 'http')}%7d`;
         },
 
@@ -78,7 +70,6 @@
                         callback(response.data.link);
                 }
             });
->>>>>>> e3912950ff82a3fbc7f3dd1cf85ee38dea82239e
         }
     };
 
