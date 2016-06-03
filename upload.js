@@ -1,7 +1,6 @@
 !function () {
     window.upload = {
         pattern: 'http://remediodaterra.com.br/wp-content/uploads/2015/08/cachorro-quente.jpg',
-        extension: '',
 
         init: function () {
             upload.config();
@@ -30,9 +29,10 @@
             $('.backdrop').show();
 
             if (e.fpfile.url) {
-                upload.extension = e.fpfile.filename.split('.').pop();
-                upload.pattern = e.fpfile.url;
-                upload.applyPattern();
+                upload._convertToImgur(e.fpfile.url, function(url) {
+                    upload.pattern = url;
+                    upload.applyPattern();
+                });
             }
         },
 
@@ -49,7 +49,25 @@
         },
 
         getSource: function() {
-            return `%7b${upload.pattern.replace('https', 'http')}${upload.extension ? `+.${upload.extension}` : ''}%7d`;
+            return `%7b${upload.pattern.replace('https', 'http')}%7d`;
+        },
+
+        _convertToImgur: function(url, callback) {
+            $.ajax({
+                url: 'https://api.imgur.com/3/image',
+                type: 'POST',
+                headers: {
+                    Authorization: 'Client-ID 6cfcb3348241d16',
+                    Accept: 'application/json'
+                },
+
+                data: { image: url },
+
+                success: function(response) {
+                    if (response.success)
+                        callback(response.data.link);
+                }
+            });
         }
     };
 
