@@ -1,6 +1,6 @@
 !function () {
     window.upload = {
-        pattern: 'http://remediodaterra.com.br/wp-content/uploads/2015/08/cachorro-quente.jpg',
+        pattern: 'http://s7d9.scene7.com/is/image/hnicorprender/allsteel-dotty-crimini?wid=400',
 
         init: function () {
             upload.config();
