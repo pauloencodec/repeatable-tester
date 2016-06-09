@@ -3,7 +3,7 @@
     <head>
         <title>Repeatable Tester</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://tobiasahlin.com/css/spinkit.css">
+        <link rel="stylesheet" href="http://tobiasahlin.com/css/spinkit.css">   
         <link rel="stylesheet" href="style.css">
         </style>
     </head>
@@ -44,13 +44,7 @@
                         <div class="col-xs-12">
                             <p>
                                 <label for="resolution">Pattern:</label><br />
-                                <input type="filepicker"
-                                        data-fp-apikey="AZ9DBBmXOQTyMhq24PDLlz"
-                                        data-fp-mimetypes="image/*"
-                                        data-fp-container="modal"
-                                        data-fp-services="COMPUTER,DROPBOX,GOOGLE_DRIVE,URL"
-                                        onchange="upload.onFileUpload(event)"
-                                        onprogress="upload.onImageLoad()" />
+                                <input type="file" id="filepicker" />
                             </p>
                         </div>
                     </div>
@@ -83,7 +77,6 @@
         </div>
 
         <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-        <script src="http://api.filestackapi.com/filestack.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="upload.js"></script>
     </body>

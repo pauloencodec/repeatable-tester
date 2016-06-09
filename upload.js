@@ -14,6 +14,7 @@
         events: function() {
             $('#resolution').on('change', upload.onChangeResolution);
             $('#image-test').on('load error', upload.onImageLoad);
+            $('#filepicker').on('change', upload.handleFile);
         },
 
         onChangeResolution: function() {
@@ -25,15 +26,30 @@
             $('.backdrop').hide();
         },
 
-        onFileUpload: function (e) {
+        handleFile: function() {
             $('.backdrop').show();
 
-            if (e.fpfile.url) {
-                upload._convertToImgur(e.fpfile.url, function(url) {
-                    upload.pattern = url;
+            var file = $('#filepicker').get(0).files[0]; 
+
+            if (!file || !file.type.match(/image.*/)) return;
+
+            var fd = new FormData();
+            fd.append('image', file);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://api.imgur.com/3/upload.json');
+            xhr.setRequestHeader('Authorization', 'Client-ID 6cfcb3348241d16');
+
+            xhr.onload = function() {
+                var response = JSON.parse(xhr.responseText);
+
+                if (response.success) {
+                    upload.pattern = response.data.link;
                     upload.applyPattern();
-                });
-            }
+                }
+            };
+
+            xhr.send(fd);
         },
 
         applyPattern: function () {
@@ -52,24 +68,6 @@
 
         getSource: function() {
             return `%7b${upload.pattern.replace('https', 'http')}%7d`;
-        },
-
-        _convertToImgur: function(url, callback) {
-            $.ajax({
-                url: 'https://api.imgur.com/3/image',
-                type: 'POST',
-                headers: {
-                    Authorization: 'Client-ID 6cfcb3348241d16',
-                    Accept: 'application/json'
-                },
-
-                data: { image: url },
-
-                success: function(response) {
-                    if (response.success)
-                        callback(response.data.link);
-                }
-            });
         }
     };
 
