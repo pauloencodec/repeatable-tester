@@ -1,5 +1,8 @@
 body {
     z-index: 0;
+    background-color: #fff;
+    color: #333;
+    text-align: left;
 }
 
 .backdrop {
@@ -13,4 +16,23 @@ body {
     right: 0;
     margin: auto;
     padding: 20%;
+}
+
+.sk-cube-grid {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+}
+
+.sk-cube {
+    background-color: #d64533 !important;
+}
+
+#modal-zoom .modal-dialog {
+    width: 99%;
+}
+
+#modal-zoom .modal-body {
+    overflow-y: scroll;
+    height: 85%;
 }
